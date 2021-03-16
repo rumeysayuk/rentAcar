@@ -12,7 +12,6 @@ export class CarComponent implements OnInit {
   dataLoaded = false;
 
   constructor(private carService: CarService) { }
-
   ngOnInit(): void {
     this.getCars();
   }
