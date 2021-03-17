@@ -1,1 +1,18 @@
-<p>rental works!</p>
+<table class="table mt-5">
+  <thead>
+  <tr class="table-danger">
+    <th>Id</th>
+    <th>Car Id</th>
+    <th>Musteri Id</th>
+    <th>Alma Tarihi</th>
+    <th>İade Tarihi</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let rental of rentals">
+    <td>{{rental.id}}</td>
+    <td>{{rental.carId}}</td>
+    <td>{{rental.customerId}}</td>
+    <td>{{rental.rentDate}}</td>
+    <td>{{rental.returnDate}}</td>
+  </tr>
+</table>

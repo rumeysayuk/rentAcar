@@ -9,7 +9,7 @@ import {CarService} from '../../services/car.service';
 })
 export class CarComponent implements OnInit {
   cars: Car [] = [];
-  dataLoaded = false;
+  dataLoaded = true;
 
   constructor(private carService: CarService) { }
   ngOnInit(): void {
