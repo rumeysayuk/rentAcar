@@ -1,4 +1,7 @@
-<ul class="list-group mb-5 mt-5">
-  <li class="list-group-item active bg-danger" aria-current="true">Renklerimiz</li>
-  <li *ngFor="let color of colors" class="list-group-item">{{color.colorName}}</li>
-</ul>
+
+<div class="content" style="margin-top: 2em;">
+  <ul class="snip1155">
+    <li *ngFor="let color of colors"><a routerLink="cars/color/{{color.colorId}}">
+      {{color.colorName}}</a><hr></li>
+  </ul>
+</div>

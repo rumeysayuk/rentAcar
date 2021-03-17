@@ -1,8 +1,7 @@
-<ul class="list-group mb-5 mt-5">
-  <li class="list-group-item active bg-danger" aria-current="true">Markalarımız</li>
-  <li (click)="setCurrentBrand(brand)" *ngFor="let brand of brands"
-      routerLink="/cars/brands/{{brand.brandId}}"
-      [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
-</ul>
-
- <h4 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h4>
+<div class="content" style="margin-top: 2em;">
+  <ul class="snip1155">
+    <li ><a routerLink="cars/">Tüm Araçlar</a><hr></li>
+    <li *ngFor="let brand of brands"><a routerLink="cars/brand/{{brand.brandId}}">
+      {{brand.brandName}}</a><hr></li>
+  </ul>
+</div>
