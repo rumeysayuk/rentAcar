@@ -22,7 +22,7 @@ export class CarService {
     return  this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
   getByColorId(colorId:number): Observable<ListResponseModel<Car>> {
-    let newPath= this.apiUrl + "cars/getbycolorıd?colorId="+colorId;
+    let newPath= this.apiUrl + "cars/getimagesbyid?id="+colorId;
     return  this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
 }
