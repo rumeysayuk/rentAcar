@@ -1,25 +1,40 @@
-<div *ngIf="dataLoaded==false " class="spinner-grow" role="status">
-  <span class="visually-hidden">Loading...</span>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let car of cars" class="col-md-6">
+      <div class="box">
+        <img src="https://via.placeholder.com/300/09f/fff.pngC/O%20https://placeholder.com/">
+        <div class="box-content">
+          <div class="row">
+            <div class="col-md-6" style="text-align: left">MARKA</div>
+            <div class="col-md-6" style="text-align: right">{{car.brandName | uppercase}}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6" style="text-align: left">RENK</div>
+            <div class="col-md-6" style="text-align: right">{{car.colorName | uppercase}}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6" style="text-align: left">MODEL YILI</div>
+            <div class="col-md-6" style="text-align: right">{{car.modelYear}}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6" style="text-align: left">GÜNLÜK FİYAT</div>
+            <div class="col-md-6" style="text-align: right">{{car.dailyPrice}}
+            </div>
+          </div>
+          <hr>
+          <a class="btn btn-1">
+            <svg>
+              <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+            </svg>
+            Detaya Git
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
-<table *ngIf="dataLoaded==true" class="table mt-5">
-  <thead>
-    <tr class="table-danger">
-      <th>Id</th>
-      <th>Araba Adı</th>
-      <th>Günlük Ücret</th>
-      <th>Model Yılı</th>
-      <th>Tanım</th>
-      <th>Marka </th>
-      <th>Renk </th>
-    </tr>
-  </thead>
-  <tr *ngFor="let car of cars">
-    <td>{{car.carId}}</td>
-    <td>{{car.carName}}</td>
-    <td>{{car.dailyPrice}}</td>
-    <td>{{car.modelYear}}</td>
-    <td>{{car.description}}</td>
-    <td>{{car.brandName}}</td>
-    <td>{{car.colorName}}</td>
-  </tr>
-</table>
+

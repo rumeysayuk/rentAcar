@@ -1,0 +1,90 @@
+*{
+  font-family: 'Montserrat', sans-serif !important;
+}
+.box{
+  position: relative;
+}
+.row:nth-child(1){
+  color: #ebebeb;
+  font-size: 1.2em;
+  padding-top: 1.5em;
+}
+.row{
+  color: #ebebeb;
+  font-size: 1.2em;
+  padding-top: 0.3em;
+}
+.box:before{
+  content: '';
+  background: rgba(0,0,0,0.8);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transform: rotate(-180deg);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.1s ease 0s;
+}
+.box:hover:before{
+  opacity: 1;
+  transform: rotate(0);
+  transition: all 1s ease 0s;
+}
+.box img{
+  width: 100%;
+  height: auto;
+}
+.box .box-content{
+  text-align: center;
+  width: 80%;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50%) rotate(-180deg);
+  position: absolute;
+  top: 16em;
+  left: 50%;
+  transition: opacity 0.1s ease 0s, transform 0.1s ease 0s;
+}
+.btn {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 5em !important;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 80%;
+}
+@media (min-width: 600px) {
+  .btn {
+    margin: 0 1em 2em;
+  }
+}
+.btn:hover {
+  text-decoration: none;
+}
+.btn-1 svg {
+  height: 45px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.btn-1 rect {
+  fill: none;
+  stroke: #ebebeb;
+  stroke-width: 4;
+  stroke-dasharray: 428, 0;
+  transition: all 0.35s linear;
+}
+.btn-1:hover rect {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 48;
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.box:hover .box-content{
+  opacity: 1;
+  transform: translateX(-50%) translateY(-50%) rotate(0);
+  transition: all 1s ease 0s;
+}
