@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Car} from '../../models/car';
 import {CarService} from '../../services/car.service';
 import {ActivatedRoute} from "@angular/router";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-car',
@@ -10,6 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CarComponent implements OnInit {
   cars: Car [] = [];
+  baseUrl=environment.baseUrl;
   dataLoaded = true;
 
   constructor(private carService: CarService,private activatedRoute:ActivatedRoute ) { }
@@ -29,7 +31,10 @@ export class CarComponent implements OnInit {
 
 
    getCars() {
-    this.carService.getCars().subscribe(response => {this.cars = response.data});
+    this.carService.getCars().subscribe(response => {
+      this.cars = response.data
+      console.log(response.data)
+    });
     this.dataLoaded = true;
   }
   getByBrandId(brandId:number) {

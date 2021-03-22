@@ -13,6 +13,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component'
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,14 @@ import { CarDetailComponent } from './components/car/car-detail/car-detail.compo
     CarDetailComponent
   ],
   imports: [
+    NgbPaginationModule,
+    NgbAlertModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
     FontAwesomeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

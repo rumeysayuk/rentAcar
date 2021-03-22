@@ -1,1 +1,16 @@
-
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let car of cars">
+    <div class="picsum-img-wrapper" style="max-width: 80%;">
+      <img class="d-block w-100" style="width: 900px; padding-left: 20%; height: 200px;" src="{{baseUrl}}{{car.imagePath}}">
+    </div>
+  </ng-template>
+</ngb-carousel>
+<div class="card" *ngFor="let car of cars; let i=index">
+  <div class="card-body" *ngIf="i<1">
+    <h5 class="card-title" style="text-align: center">{{car.brandName}}</h5>
+   <h5 class="card-text">{{car.description}}</h5>
+   <h5 class="card-text">{{car.colorName}}</h5>
+   <h5 class="card-text">{{car.dailyPrice}}</h5>
+   <h5 class="card-text">{{car.modelYear}}</h5>
+  </div>
+</div>

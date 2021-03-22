@@ -3,12 +3,13 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ListResponseModel} from '../models/listResponseModel';
 import {Customer} from '../models/customer';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  apiUrl = 'https://localhost:44365/api/customers/getallcustomers';
+  apiUrl = environment.apiUrl+'customers/getallcustomers';
 
   constructor(private httpClient: HttpClient) {
   }

@@ -3,12 +3,13 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ListResponseModel} from '../models/listResponseModel';
 import {Rental} from '../models/rental';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RentalService {
-  apiUrl = 'https://localhost:44365/api/rentals/getallrentals';
+  apiUrl = environment.apiUrl+'rentals/getallrentals';
 
   constructor(private httpClient: HttpClient) {
   }
