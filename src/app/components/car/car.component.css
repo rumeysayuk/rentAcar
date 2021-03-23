@@ -3,21 +3,24 @@
 }
 .box{
   position: relative;
+  height: 22em;
 }
 .row:nth-child(1){
   color: #ebebeb;
   font-size: 1.2em;
   padding-top: 1.5em;
 }
+.box{
+  margin-bottom: 35px;
+}
 .row{
   color: #ebebeb;
   font-size: 1.2em;
-  padding-top: 0.3em;
 }
 .box:before{
   content: '';
   background: rgba(0,0,0,0.8);
-  height: 100%;
+  height: 22em;
   width: 100%;
   opacity: 0;
   transform: rotate(-180deg);
@@ -30,27 +33,29 @@
   opacity: 1;
   transform: rotate(0);
   transition: all 1s ease 0s;
+  height: 22em;
 }
 .box img{
   width: 100%;
-  height: auto;
+  height: 22em;
 }
+
 .box .box-content{
   text-align: center;
   width: 80%;
   opacity: 0;
   transform: translateX(-50%) translateY(-50%) rotate(-180deg);
   position: absolute;
-  top: 16em;
+  top: 11em;
   left: 50%;
   transition: opacity 0.1s ease 0s, transform 0.1s ease 0s;
 }
 .btn {
-  color: #fff;
+  color: #ebebeb;
   cursor: pointer;
   font-size: 1.1em;
-  margin-top: 5em !important;
   position: relative;
+  margin-top: 1.1em!important;
   text-decoration: none;
   text-transform: uppercase;
   width: 80%;
@@ -62,6 +67,7 @@
 }
 .btn:hover {
   text-decoration: none;
+  border: 2px solid rgba(95,0,250,1);
 }
 .btn-1 svg {
   height: 45px;
@@ -69,6 +75,7 @@
   position: absolute;
   top: 0;
   width: 100%;
+  border-radius: 5px;
 }
 .btn-1 rect {
   fill: none;

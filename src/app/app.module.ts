@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component'
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -27,14 +30,17 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     CarDetailComponent
   ],
   imports: [
-    NgbPaginationModule,
-    NgbAlertModule,
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     HttpClientModule,
-    FontAwesomeModule
-
+    ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
+    NgbPaginationModule,
+    NgbAlertModule,
+    FormsModule,
+    FontAwesomeModule,
+    NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
