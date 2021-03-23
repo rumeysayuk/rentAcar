@@ -1,7 +1,16 @@
 
 <div class="content" style="margin-top: 2em;">
+  <div class="row">
+    <div class="row d-flex">
+      <div class="col-md-12">
+        <div class="mb-3 py-5" >
+          <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"  placeholder="Renk ara">
+        </div>
+      </div>
+    </div>
   <ul class="snip1155">
-    <li *ngFor="let color of colors"><a routerLink="cars/color/{{color.colorId}}">
+    <li *ngFor="let color of colors | colorFilter:filterText"><a routerLink="cars/color/{{color.colorId}}">
       {{color.colorName}}</a><hr></li>
   </ul>
+</div>
 </div>

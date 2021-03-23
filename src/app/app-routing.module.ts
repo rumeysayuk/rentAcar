@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {CarComponent} from './components/car/car.component';
 import {CarDetailComponent} from "./components/car/car-detail/car-detail.component";
 
+
 const routes: Routes = [
   {path:"",pathMatch:"full", component:CarComponent},
   {path:"cars",component:CarComponent},

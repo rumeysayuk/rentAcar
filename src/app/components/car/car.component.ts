@@ -3,6 +3,7 @@ import {Car} from '../../models/car';
 import {CarService} from '../../services/car.service';
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../../environments/environment";
+import {Brand} from "../../models/brand";
 
 @Component({
   selector: 'app-car',
@@ -13,6 +14,7 @@ export class CarComponent implements OnInit {
   cars: Car [] = [];
   baseUrl=environment.baseUrl;
   dataLoaded = true;
+  filterText='';
 
   constructor(private carService: CarService,private activatedRoute:ActivatedRoute ) { }
   ngOnInit(): void {

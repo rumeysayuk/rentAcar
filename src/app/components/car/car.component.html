@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
-    <div *ngFor="let car of cars" class="col-md-6">
+    <div class="row d-flex">
+      <div class="col-md-4">
+        <div class="mb-3" >
+          <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"  placeholder="Search">
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let car of cars | carFilter:filterText" class="col-md-6">
       <div class="box">
         <img class="img-fluid" src="{{baseUrl}}{{car.imagePath}}">
         <div class="box-content">

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import{AppRoutingModule} from "./app-routing.module";
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
 import { BrandComponent } from './components/brand/brand.component';
@@ -17,6 +17,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component'
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
+import { CarFilterPipe } from './pipes/car-filter.pipe';
+import { BrandFilterPipe } from './pipes/brand-filter.pipe';
+import { ColorFilterPipe } from './pipes/color-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import {ToastrModule} from 'ngx-toastr';
     CustomerComponent,
     RentalComponent,
     NaviComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    CarFilterPipe,
+    BrandFilterPipe,
+    ColorFilterPipe
   ],
   imports: [
     BrowserAnimationsModule,
