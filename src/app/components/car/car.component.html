@@ -1,12 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="row d-flex">
-      <div class="col-md-4">
-        <div class="mb-3" >
-          <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"  placeholder="Search">
-        </div>
-      </div>
-    </div>
+    <input type="text" [(ngModel)]="filterText" class="form-control"
+           id="filterText" placeholder="Aramak İçin Marka Adını Giriniz">
+    <div *ngIf="filterText.length>1" class="alert alert-success">{{filterText | titlecase}} aradınız.</div>
     <div *ngFor="let car of cars | carFilter:filterText" class="col-md-6">
       <div class="box">
         <img class="img-fluid" src="{{baseUrl}}{{car.imagePath}}">
@@ -35,7 +31,8 @@
           <a class="btn btn-1" routerLink="/cars/details/{{car.id}}">
             <svg>
               <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-            </svg>Detaya Git
+            </svg>
+            Detaya Git
           </a>
         </div>
       </div>

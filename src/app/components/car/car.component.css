@@ -1,25 +1,26 @@
-*{
+* {
   font-family: 'Montserrat', sans-serif !important;
 }
-.box{
+
+.box {
   position: relative;
   height: 22em;
-}
-.row:nth-child(1){
-  color: #ebebeb;
-  font-size: 1.2em;
-  padding-top: 1.5em;
-}
-.box{
   margin-bottom: 35px;
 }
-.row{
+
+.row:nth-child(1) {
   color: #ebebeb;
   font-size: 1.2em;
 }
-.box:before{
+
+.row {
+  color: #ebebeb;
+  font-size: 1.2em;
+}
+
+.box:before {
   content: '';
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   height: 22em;
   width: 100%;
   opacity: 0;
@@ -29,18 +30,20 @@
   top: 0;
   transition: all 0.1s ease 0s;
 }
-.box:hover:before{
+
+.box:hover:before {
   opacity: 1;
   transform: rotate(0);
   transition: all 1s ease 0s;
   height: 22em;
 }
-.box img{
+
+.box img {
   width: 100%;
   height: 22em;
 }
 
-.box .box-content{
+.box .box-content {
   text-align: center;
   width: 80%;
   opacity: 0;
@@ -50,25 +53,45 @@
   left: 50%;
   transition: opacity 0.1s ease 0s, transform 0.1s ease 0s;
 }
+
 .btn {
   color: #ebebeb;
   cursor: pointer;
   font-size: 1.1em;
   position: relative;
-  margin-top: 1.1em!important;
+  margin-top: 1.1em !important;
   text-decoration: none;
   text-transform: uppercase;
   width: 80%;
 }
+
 @media (min-width: 600px) {
   .btn {
     margin: 0 1em 2em;
   }
 }
+
+.row input {
+  width: 100%;
+  height: 50px;
+  font-weight: 30;
+  margin-bottom: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+}
+
+.row input:hover {
+  border: 2px solid red;
+}
+
+.row input:focus {
+  border: 2px solid #4000ff;
+}
+
 .btn:hover {
   text-decoration: none;
-  border: 2px solid rgba(95,0,250,1);
+  border: 2px solid rgba(95, 0, 250, 1);
 }
+
 .btn-1 svg {
   height: 45px;
   left: 0;
@@ -77,6 +100,7 @@
   width: 100%;
   border-radius: 5px;
 }
+
 .btn-1 rect {
   fill: none;
   stroke: #ebebeb;
@@ -84,13 +108,15 @@
   stroke-dasharray: 428, 0;
   transition: all 0.35s linear;
 }
+
 .btn-1:hover rect {
   stroke-width: 5;
   stroke-dasharray: 15, 310;
   stroke-dashoffset: 48;
   transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.box:hover .box-content{
+
+.box:hover .box-content {
   opacity: 1;
   transform: translateX(-50%) translateY(-50%) rotate(0);
   transition: all 1s ease 0s;
