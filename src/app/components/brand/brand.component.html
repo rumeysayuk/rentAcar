@@ -19,6 +19,6 @@
 <!--</div>-->
 <select class="form-select" aria-label="Default select example" (change)="setCurrentBrand()">
   <option [ngValue]="allBrand" [selected]="allBrandSelect()">Tüm Markaları getir</option>
-  <option *ngFor="let brand of brands" [ngValue]="brand"]>{{brand.brandName}}</option>
+  <option *ngFor="let brand of brands" [ngValue]="brand">{{brand.brandName}}</option>
 </select>
 <button class="btn btn-danger">Filtrele</button>
