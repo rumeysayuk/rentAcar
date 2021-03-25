@@ -1,21 +1,4 @@
-<div class="content" style="margin-top: 2em;">
-  <div class="row">
-    <div class="filterText">
-      <input type="text" [(ngModel)]="filterText" class="form-control"
-             id="filterText" placeholder="Aramak İçin Renk Adını Giriniz">
-      <div *ngIf="filterText.length>1" class="alert alert-success">{{filterText | titlecase}} aradınız.</div>
-    </div>
-    <ul class="snip1155">
-      <li *ngFor="let color of colors | colorFilter:filterText"><a routerLink="cars/color/{{color.colorId}}">
-        {{color.colorName}}</a>
-        <hr>
-      </li>
-    </ul>
-  </div>
-</div>
-<select class="form-select" aria-label="Default select example">
-  <option selected >Renk şeçiniz</option>
-  <option value="1" *ngFor="let  color of colors" (click)="getColor()"><a routerLink="/cars/color/{{color.colorId}}">
-    {{color.colorName}}</a>
-  </option>
+<select class="form-select" aria-label="Default select example" [(ngModel)]="currentColor" (change)="setCurrentColor()">
+  <option [ngValue]="allColor" [selected]="allColorSelect()">Tüm Renkleri getir</option>
+  <option *ngFor="let color of colors" [ngValue]="color">{{color.colorName}}</option>
 </select>

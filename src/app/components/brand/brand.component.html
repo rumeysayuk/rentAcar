@@ -1,24 +1,5 @@
-<!--<div class="content">-->
-<!--  <div class="row">-->
-<!--    <div class="filterText">-->
-<!--      <input type="text" [(ngModel)]="filterText" class="form-control"-->
-<!--              placeholder="Aramak İçin Marka Adını Giriniz">-->
-<!--      <div *ngIf="filterText.length>1" class="alert alert-success">{{filterText | titlecase}} aradınız.</div>-->
-<!--    </div>-->
-<!--    <ul class="snip1155">-->
-<!--      <li><a routerLink="/cars">Tüm Araçlar</a>-->
-<!--        <hr>-->
-<!--      </li>-->
-<!--      <li *ngFor="let brand of brands | brandFilter:filterText"-->
-<!--          (click)="setCurrentBrand(brand)"><a routerLink="/cars/brand/{{brand.brandId}}">-->
-<!--        {{brand.brandName}}</a>-->
-<!--        <hr>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->
-<select class="form-select" aria-label="Default select example" (change)="setCurrentBrand()">
+<select class="form-select" aria-label="Default select example" [(ngModel)]="currentBrand" (change)="setCurrentBrand()">
   <option [ngValue]="allBrand" [selected]="allBrandSelect()">Tüm Markaları getir</option>
   <option *ngFor="let brand of brands" [ngValue]="brand">{{brand.brandName}}</option>
 </select>
-<button class="btn btn-danger">Filtrele</button>
+

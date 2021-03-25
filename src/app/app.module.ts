@@ -22,6 +22,7 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoginComponent } from './components/login/login.component';
     BrandFilterPipe,
     ColorFilterPipe,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FilterComponent
   ],
   imports: [
     BrowserAnimationsModule,
