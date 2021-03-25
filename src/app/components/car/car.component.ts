@@ -18,20 +18,13 @@ export class CarComponent implements OnInit {
 
   constructor(private carService: CarService,private activatedRoute:ActivatedRoute ) { }
   ngOnInit(): void {
-   this.activatedRoute.params.subscribe(params=>{
-     if(params["brandId"]){
-       this.getByBrandId(params["brandId"])
-     }
-     else if(params["colorId"]){
-       this.getByColorId(params["colorId"])
-     }
-     else if(params["brandId"]){
-       this.getCarBrandAndColor(["brandId"],["colorId"])
-     }
-     else {
-       this.getCars();
-     }
-   })
+    this.activatedRoute.params.subscribe(params => {
+      if (params['brandId'] && params['colorId'])
+        this.getCarBrandAndColor(params['brandId'], params['colorId']);
+      else if (params['brandId']) this.getByBrandId(params['brandId']);
+      else if (params['colorId']) this.getByColorId(params['colorId']);
+      else this.getCars();
+    })
   }
 
 

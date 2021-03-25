@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Filters} from "../../models/filters";
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Filters} from '../../models/filters';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -9,19 +9,28 @@ import {Router} from "@angular/router";
 })
 export class FilterComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-  setRoute(){
-    if(Filters["brandId"]){
+  setRoute() {
+    if (Filters['brandId'] && Filters['colorId']) {
+      this.router.navigate([
+        `cars/brand/${Filters.brandId}/color/${Filters.colorId}`,
+      ]);
+    } else if (Filters['brandId']) {
       this.router.navigate([`cars/brand/${Filters.brandId}`]);
-    }
-    if(Filters["colorId"]){
+    } else if (Filters['colorId']) {
       this.router.navigate([`cars/color/${Filters.colorId}`]);
+    } else {
+      this.router.navigate([`/`]);
     }
+  }
 
+  clearRoute() {
+    this.router.navigate(['cars/']);
   }
 
 }
