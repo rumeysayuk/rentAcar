@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {Component, OnInit} from '@angular/core';
 import {faCcMastercard} from '@fortawesome/free-brands-svg-icons';
 import {faAddressCard, faCity, faEnvelope, faRoad, faUser} from '@fortawesome/free-solid-svg-icons';
@@ -5,6 +6,9 @@ import {ActivatedRoute} from '@angular/router';
 import {Rental} from '../../models/rental';
 import {RentalService} from '../../services/rental.service';
 import {ToastrService} from 'ngx-toastr';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> origin/master
 
 @Component({
   selector: 'app-payment',
@@ -12,6 +16,7 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+<<<<<<< HEAD
   userIcon = faUser;
   mailIcon = faEnvelope;
   addressIcon = faAddressCard;
@@ -38,4 +43,12 @@ export class PaymentComponent implements OnInit {
       this.toastrService.info(response.message);
     });
   }
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> origin/master
 }
