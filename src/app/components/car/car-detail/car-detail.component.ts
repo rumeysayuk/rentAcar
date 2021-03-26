@@ -58,6 +58,7 @@ export class CarDetailComponent implements OnInit {
   }
 
   goCart(car: Car) {
+
     this.toastrService.success(' Araç sepete eklendi.Yönlendiriliyorsunuz.');
     this.cartService.addToCart(car);
     this.router.navigate(['cartsummary']);
