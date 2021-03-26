@@ -5,7 +5,6 @@ import {ActivatedRoute} from '@angular/router';
 import {Rental} from '../../models/rental';
 import {RentalService} from '../../services/rental.service';
 import {ToastrService} from 'ngx-toastr';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-payment',
@@ -38,11 +37,6 @@ export class PaymentComponent implements OnInit {
     this.rentalService.addRental(rental).subscribe(response => {
       this.toastrService.info(response.message);
     });
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
   }
 
 }
