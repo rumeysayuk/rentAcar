@@ -5,6 +5,7 @@ import {CarDetailComponent} from "./components/car/car-detail/car-detail.compone
 import {RegisterComponent} from "./register/register.component";
 import {LoginComponent} from "./components/login/login.component";
 import {CartSummaryComponent} from "./components/cart-summary/cart-summary.component";
+import {PaymentComponent} from './components/payment/payment.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"login",component:LoginComponent},
   {path:"cartsummary",component:CartSummaryComponent},
+  {path:"payment/:myrental",component:PaymentComponent},
 ];
 
 @NgModule({

@@ -24,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     RegisterComponent,
     LoginComponent,
     FilterComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserAnimationsModule,

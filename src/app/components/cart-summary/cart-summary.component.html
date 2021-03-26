@@ -35,8 +35,27 @@
       </div>
       <hr>
       <div style="background-color: transparent">
+        <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
+          <div class="row">
+            <div class="col-6">
+              <form class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input style="width: 250px;" class="form-control" placeholder="yyyy-mm-dd"
+                           name="dp" [(ngModel)]="model" ngbDatepicker
+                           #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="icon-calendar" (click)="d.toggle()" type="button">Kiralama Tarihi</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <br>
+        </div>
         <div class="pull-right" style="margin-top: 50px;">
-          <button  type="button" class="btn btn-success btn-block"> Ödemeye Git
+          <button (click)="createRental()" type="button" class="btn btn-success btn-block"> Ödemeye Git
           </button>
           <div class="pull-right" style="margin: 5px">
             Toplam Fiyat: <b>{{totalPrice}}<fa-icon [icon]="priceIcon"></fa-icon></b>
