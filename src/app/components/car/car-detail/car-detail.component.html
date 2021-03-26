@@ -24,10 +24,10 @@
               <h4 class="product-description">{{car.description}}</h4>
             </div>
           </div>
-        </div>
+
 
         <div class="wrapper-no4">
-          <button (click)="goCart()"  class="button-bird">
+          <button (click)="goCart(car)" *ngIf="i<1" let i=index  class="button-bird">
             <p  class="button-bird__text">Sepete Ekle</p>
             <svg version="1.1" class="feather" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve">
@@ -71,6 +71,7 @@
             <span class="bird--29"></span>
             <span class="bird--30"></span>
           </button>
+        </div>
         </div>
       </div>
     </div>

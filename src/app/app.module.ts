@@ -23,6 +23,7 @@ import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FilterComponent } from './components/filter/filter.component';
     ColorFilterPipe,
     RegisterComponent,
     LoginComponent,
-    FilterComponent
+    FilterComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserAnimationsModule,

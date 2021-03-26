@@ -7,6 +7,7 @@ import {environment} from '../../../../environments/environment';
 import {CarService} from '../../../services/car.service';
 import {faLiraSign} from '@fortawesome/free-solid-svg-icons';
 import {ToastrService} from 'ngx-toastr';
+import {CartService} from "../../../services/cart.service";
 
 @Component({
   selector: 'app-car-detail',
@@ -25,7 +26,8 @@ export class CarDetailComponent implements OnInit {
               private carService: CarService,
               private activatedRoute: ActivatedRoute,
               private toastrService: ToastrService,
-              private router: Router) {
+              private router: Router,
+              private cartService:CartService) {
   }
 
   ngOnInit(): void {
@@ -55,14 +57,12 @@ export class CarDetailComponent implements OnInit {
     });
   }
 
-  goCart(){
-    setTimeout(() => {
-        this.router.navigate(['/']);
-      },
-      3500);
-    this.toastrService.success('Araç Sepete Eklendi. Yönlendiriliyorsunuz..');
+  goCart(car :Car) {
+    this.toastrService.success(" Araç sepete eklendi.Yönlendiriliyorsunuz.");
+    this.cartService.addToCart(car);
+    this.router.navigate(["cartsummary"]);
+    console.log(car);
   }
-
   getDetailsById(carId: number) {
     this.carService.getCarDetailById(carId).subscribe(response => {
       this.cars = response.data;

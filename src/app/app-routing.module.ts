@@ -4,6 +4,7 @@ import {CarComponent} from './components/car/car.component';
 import {CarDetailComponent} from "./components/car/car-detail/car-detail.component";
 import {RegisterComponent} from "./register/register.component";
 import {LoginComponent} from "./components/login/login.component";
+import {CartSummaryComponent} from "./components/cart-summary/cart-summary.component";
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"cars/brand/:brandId/color/:colorId",component:CarComponent},
   {path:"cars/details/:id",component:CarDetailComponent},
   {path:"register",component:RegisterComponent},
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"cartsummary",component:CartSummaryComponent},
 ];
 
 @NgModule({

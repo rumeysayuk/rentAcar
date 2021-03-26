@@ -1,0 +1,25 @@
+<li *ngIf="cartItems" class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navbarDropdown"
+     role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Sepetiniz
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li *ngFor="let cartItem of cartItems"><a
+      class="dropdown-item">
+      <span class="badge bg-secondary">{{cartItem.quantity}}
+      </span>{{cartItem.car.brandName }}<span (click)="removeFromCart(cartItem.car)"
+      class="badge bg-secondary">Sil</span></a></li>
+  </ul>
+</li>
+<div class="details col-md-4" *ngFor="let car of cars; let i=index">
+  <div class="car-info" *ngIf="i<1">
+    <h5 class="card-title">{{car.brandName}}</h5>
+    <div class="content">
+      <h4 class="price"><span>Günlük Fiyat   </span><span class="right"> {{ car.dailyPrice }}
+        <fa-icon [icon]="tlIcon"></fa-icon></span></h4>
+      <h4 class="card-text"><span>Renk   </span><span class="right"> {{car.colorName}}</span></h4>
+      <h4 class="card-text"><span>Model Yılı   </span><span class="right"> {{car.modelYear}}</span></h4>
+      <h4 class="product-description">{{car.description}}</h4>
+    </div>
+  </div>
+  </div>
