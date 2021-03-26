@@ -8,6 +8,9 @@ import {CarImageService} from '../../services/car-image.service';
 import {CarService} from '../../services/car.service';
 import {ToastrService} from 'ngx-toastr';
 import {environment} from '../../../environments/environment';
+import {NgbDate} from '@ng-bootstrap/ng-bootstrap';
+import {Rental} from '../../models/rental';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart-summary',
@@ -19,13 +22,17 @@ export class CartSummaryComponent implements OnInit {
   baseUrl = environment.baseUrl;
   carImages: CarImage[] = [];
   tlIcon = faLiraSign;
+  now = new Date();
+  model = new NgbDate(new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate());
   totalPrice: number = 0;
   removeIcon = faExclamation;
   priceIcon = faLiraSign;
+
   constructor(private cartService: CartService,
               private carImageService: CarImageService,
               private carService: CarService,
-              private toastrService: ToastrService) {
+              private toastrService: ToastrService,
+              private router:Router) {
   }
 
   ngOnInit(): void {
@@ -34,6 +41,18 @@ export class CartSummaryComponent implements OnInit {
 
   getCart() {
     this.cartItems = this.cartService.list();
+  }
+
+  createRental() {
+    let myRental: Rental = {
+      returnDate: new Date(this.model.year, this.model.month, this.model.day),
+      carId: this.cartItems[0].car.id,
+      customerId: 2,
+      id: null,
+      rentDate: this.now
+    };
+    this.router.navigate(['/payment/', JSON.stringify(myRental)]);
+    this.toastrService.info('Ödeme sayfasına yönlendiriliyorsunuz...', 'Ödeme İşlemleri');
   }
 
   removeFromCart(car: Car) {
