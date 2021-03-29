@@ -22,11 +22,13 @@ export class CartSummaryComponent implements OnInit {
   baseUrl = environment.baseUrl;
   carImages: CarImage[] = [];
   tlIcon = faLiraSign;
-  now = new Date();
-  model = new NgbDate(new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate());
-  totalPrice: number = 0;
   removeIcon = faExclamation;
   priceIcon = faLiraSign;
+  cartItem:CartItem;
+  rentDate=new NgbDate(new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate());
+  returndate=new NgbDate(new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate()+1);
+  totalPrice: number = 0;
+  minReturnDate=new NgbDate(this.rentDate.year,this.rentDate.month,this.rentDate.day + 2);
 
   constructor(private cartService: CartService,
               private carImageService: CarImageService,
@@ -34,7 +36,6 @@ export class CartSummaryComponent implements OnInit {
               private toastrService: ToastrService,
               private router:Router) {
   }
-
   ngOnInit(): void {
     this.getCart();
   }
@@ -45,11 +46,11 @@ export class CartSummaryComponent implements OnInit {
 
   createRental() {
     let myRental: Rental = {
-      returnDate: new Date(this.model.year, this.model.month, this.model.day),
       carId: this.cartItems[0].car.id,
       customerId: 1,
       id: null,
-      rentDate: this.now
+      rentDate:new Date(this.rentDate.year, this.rentDate.month, this.rentDate.day),
+      returnDate: new Date(this.returndate.year, this.returndate.month, this.returndate.day)
     };
     this.router.navigate(['/payment/', JSON.stringify(myRental)]);
     this.toastrService.info('Ödeme sayfasına yönlendiriliyorsunuz...', 'Ödeme İşlemleri');
@@ -59,4 +60,19 @@ export class CartSummaryComponent implements OnInit {
     this.cartService.removeFromCart(car);
     this.toastrService.error(car.brandName + ' sepetten silindi .');
   }
+  calculatePrice(){
+    var rentDate = new Date(this.rentDate.year, this.rentDate.month - 1, this.rentDate.day);
+    var returnDate = new Date(this.returndate.year, this.returndate.month - 1, this.returndate.day);
+    var timeDifference = Math.abs(returnDate.getTime() - rentDate.getTime());
+    var dayDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+    this.totalPrice = dayDifference * this.cartItems[0].car.dailyPrice;
+  }
+checkRent(){
+    if(this.returndate!= this.rentDate){
+
+    }
+    else{
+      this.toastrService.error('Araç kirada ...');
+    }
+}
 }

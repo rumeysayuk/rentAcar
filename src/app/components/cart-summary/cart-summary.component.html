@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="card shopping-cart">
     <div class="card-header bg-dark text-light">
@@ -42,12 +41,22 @@
                 <div class="form-group">
                   <div class="input-group">
                     <input style="width: 250px;" class="form-control" placeholder="yyyy-mm-dd"
-                           name="dp" [(ngModel)]="model" ngbDatepicker
+                           name="dp" [minDate]="rentDate" [readOnly]="true" [(ngModel)]="rentDate" (ngModelChange)="checkRent()" ngbDatepicker
                            #d="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="icon-calendar" (click)="d.toggle()" type="button">Kiralama Tarihi</button>
                     </div>
                   </div>
+
+                  <div class="input-group">
+                    <input style="width: 250px;" class="form-control"  placeholder="yyyy-mm-dd"
+                           name="dp" [minDate]="minReturnDate" [readOnly]="true"  [(ngModel)]="returndate" (ngModelChange)="calculatePrice()" ngbDatepicker
+                           #d2="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="icon-calendar" (click)="d2.toggle()"type="button">İade Tarihi</button>
+                    </div>
+                  </div>
+
                 </div>
               </form>
             </div>
