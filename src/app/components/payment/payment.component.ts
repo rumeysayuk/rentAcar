@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Rental} from '../../models/rental';
 import {RentalService} from '../../services/rental.service';
 import {ToastrService} from 'ngx-toastr';
+import {CreditCard} from "../../models/creditCard";
 
 @Component({
   selector: 'app-payment',
@@ -19,6 +20,9 @@ export class PaymentComponent implements OnInit {
   streetIcon = faRoad;
   masterCardIcon = faCcMastercard;
   rental: Rental;
+  creditCard:CreditCard;
+
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private rentalService: RentalService,
@@ -33,9 +37,11 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  addRental(rental: Rental) {
-    this.rentalService.addRental(rental).subscribe(response => {
-      this.toastrService.info(response.message);
+  addRental(rental: Rental,creditCard:CreditCard) {
+    this.rentalService.addRental(rental,creditCard).subscribe(response => {
+      this.toastrService.info("Kiralama başarılı");
+      console.log(rental);
+      console.log(creditCard)
     });
   }
 

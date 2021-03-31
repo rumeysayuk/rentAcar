@@ -3,7 +3,6 @@ import {Car} from '../../models/car';
 import {CarService} from '../../services/car.service';
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../../environments/environment";
-import {Brand} from "../../models/brand";
 
 @Component({
   selector: 'app-car',
