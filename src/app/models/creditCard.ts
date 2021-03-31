@@ -1,7 +1,7 @@
-export interface CreditCard {
-  CardHolderName:string;
-  ExpirationMonth:number;
-  ExpirationYear:number;
-  CardNumber:string;
-  Cvv:number;
+export class FakeCreditCard{
+  cvv:string;
+  cardNumber:string;
+  expirationYear:number;
+  expirationMonth:number;
+  cardHolderName:string;
 }

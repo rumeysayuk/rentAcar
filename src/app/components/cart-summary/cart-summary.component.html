@@ -7,7 +7,7 @@
     <div class="card-body" *ngFor="let cartItem of cartItems">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-2 text-center">
-          <img class="img-responsive" src="{{baseUrl}}/{{cartItem.car.imagePath}}" alt="prewiew"
+          <img class="img-responsive" src="{{baseUrl}}{{cartItem.car.imagePath}}"
                width="120" height="80">
         </div>
         <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
@@ -40,23 +40,23 @@
               <form class="form-inline">
                 <div class="form-group">
                   <div class="input-group">
-                    <input style="width: 250px;" class="form-control" placeholder="yyyy-mm-dd"
-                           name="dp" [minDate]="rentDate" [readOnly]="true" [(ngModel)]="rentDate" (ngModelChange)=" checkRent()" ngbDatepicker
+                    <input style="width: 250px;" class="form-control"
+                           name="dp" [(ngModel)]="rentDate" [minDate]="minRentDate" [readOnly]="true"
+                           (ngModelChange)=" checkRent()" ngbDatepicker
                            #d="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="icon-calendar" (click)="d.toggle()" type="button">Kiralama Tarihi</button>
                     </div>
                   </div>
-
                   <div class="input-group">
-                    <input style="width: 250px;" class="form-control"  placeholder="yyyy-mm-dd"
-                           name="dp" [minDate]="minReturnDate" [readOnly]="true" [(ngModel)]="returndate" (ngModelChange)="calculatePrice()" ngbDatepicker
+                    <input style="width: 250px;" class="form-control"
+                           name="dp2" [(ngModel)]="returnDate" [minDate]="minReturnDate" [readOnly]="true"
+                           (ngModelChange)="calculatePrice()" ngbDatepicker
                            #d2="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="icon-calendar" (click)="d2.toggle()"type="button">İade Tarihi</button>
                     </div>
                   </div>
-
                 </div>
               </form>
             </div>

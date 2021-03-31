@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form method="post">
+      <form [formGroup]="creditCardForm">
         <div class="row">
           <div class="col-50">
             <h3 style="padding-left: 25%; font-size: 1.6em;">Fatura Adresi Bilgileri</h3>
@@ -28,22 +28,22 @@
               <fa-icon [icon]="masterCardIcon" style="color: red;" class="fa-2x"></fa-icon>
             </div>
             <label for="cname">Kart İsmi</label>
-            <input type="text" id="cname" name="cardname" [(ngModel)]="creditCard.CardHolderName" placeholder="Rümeysa Yük">
+            <input type="text" id="cname" name="cardname" formControlName="cardHolderName" placeholder="Rümeysa Yük">
 
             <label for="ccnum">Kredi Kartı Numarası</label>
-            <input type="text" id="ccnum" name="cardnumber" [(ngModel)]="creditCard.CardNumber" placeholder="1111222233334444">
-            <label for="expmonth">Ay</label>
-            <input type="text" id="expmonth" name="expmonth" [(ngModel)]="creditCard.ExpirationMonth" placeholder="5">
+            <input type="text" id="ccnum" name="cardnumber" formControlName="cardNumber" placeholder="1111222233334444">
+            <label for="expirationMonth">Ay</label>
+            <input type="number" id="expirationMonth" formControlName="expirationMonth" name="expirationMonth" placeholder="5">
 
             <div class="row">
               <div class="col-50">
-                <label for="expyear">Yıl</label>
-                <input type="text" id="expyear" [(ngModel)]="creditCard.ExpirationYear" name="expyear" placeholder="2025">
+                <label for="expirationYear">Yıl</label>
+                <input type="number" id="expirationYear" formControlName="expirationYear" name="expirationYear" placeholder="2025">
 
               </div>
               <div class="col-50">
                 <label for="cvv">Cv</label>
-                <input type="text" id="cvv" name="cvv" [(ngModel)]="creditCard.Cvv" placeholder="352">
+                <input type="text" id="cvv" name="cvv" formControlName="cvv" placeholder="352">
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
           <input type="text" placeholder="Kredi Kart İsmi">
           <input type="checkbox" id="saveCreditCard" checked="checked" name="sameadr">Kredi Kartı Bilgilerimi Kaydet
         </label>
-        <button (click)="addRental(rental,creditCard)" class="btn">Ödemeyi Tamamla</button>
+        <button (click)="addRental()" [disabled]="!creditCardForm" class="btn">Ödemeyi Tamamla</button>
       </form>
     </div>
   </div>
