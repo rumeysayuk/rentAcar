@@ -95,7 +95,7 @@ export class CartSummaryComponent implements OnInit {
       let myRental: Rental = {
         id: null,
         carId: this.cartItems[0].car.id,
-        userId: 1,
+        userId: 2,
         rentDate: new Date(this.rentDate.year, this.rentDate.month - 1, this.rentDate.day + 1),
         returnDate: new Date(this.returnDate.year, this.returnDate.month - 1, this.returnDate.day + 1)
       };
