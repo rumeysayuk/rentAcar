@@ -1,0 +1,11 @@
+<form [formGroup]="colorAddForm">
+  <div>
+  </div>
+  <div class="col-50">
+    <label for="colorName">Renk ismi :</label>
+    <input type="text" style="margin:30px " id="colorName" class="form-label" name="colorName" formControlName="colorName" placeholder="mor">
+  </div>
+  <button class="btn btn-outline-primary" style="margin: 30px; text-align: center"
+          (click)="addColor()" [disabled]="!colorAddForm" type="submit">Renk Ekle</button>
+</form>
+

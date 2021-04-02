@@ -1,0 +1,8 @@
+<form [formGroup]="brandAddForm">
+  <div class="col-50">
+    <label for="brandName">Marka ismi :</label>
+    <input type="text" style="margin:30px " id="brandName" class="form-label" name="brandName" formControlName="brandName" placeholder="bmw">
+  </div>
+  <button class="btn btn-outline-primary" style="margin: 30px; text-align: center" (click)="addBrand()"
+          [disabled]="!brandAddForm" type="submit">Marka Ekle</button>
+</form>
