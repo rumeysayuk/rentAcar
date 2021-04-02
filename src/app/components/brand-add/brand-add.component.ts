@@ -20,14 +20,14 @@ export class BrandAddComponent implements OnInit {
               private router:Router) { }
 
   ngOnInit(): void {
-
-    this.addBrand();
     this.createBrandAddForm();
+    this.addBrand();
+
   }
 
   createBrandAddForm(){
     this.brandAddForm=this.formBuilder.group({
-      brandName: ['', Validators.required],
+      brandName: ['', Validators.required]
     });
   }
 
@@ -35,7 +35,7 @@ export class BrandAddComponent implements OnInit {
     let brandModel=Object.assign({},this.brandAddForm.value);
     this.brandService.addBrand(brandModel).subscribe(response=> {
       this.toastrService.success("Marka eklendi");
-      this.router.navigate(['brands']).then(() => setTimeout(function() {
+      this.router.navigate(['/']).then(() => setTimeout(function() {
         window.location.reload();
       }, 800));
     });

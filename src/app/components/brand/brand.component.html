@@ -2,19 +2,3 @@
   <option [ngValue]="allBrand" [selected]="allBrandSelect()">Tüm Markaları getir</option>
   <option *ngFor="let brand of brands" [ngValue]="brand">{{brand.brandName}}</option>
 </select>
-<table class="table">
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Marka adı</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let brand of brands">
-    <td>{{ brand.brandId}}</td>
-    <td>{{ brand.brandName}}</td>
-  </tr>
-  </tbody>
-</table>
-<button routerLink="brandadd">Marka Ekle</button>
-
