@@ -25,6 +25,9 @@ import { LoginComponent } from './components/login/login.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { PaymentComponent } from './components/payment/payment.component';
     LoginComponent,
     FilterComponent,
     CartSummaryComponent,
-    PaymentComponent
+    PaymentComponent,
+    CarAddComponent,
+    ColorAddComponent,
+    BrandAddComponent
   ],
   imports: [
     BrowserAnimationsModule,

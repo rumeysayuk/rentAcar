@@ -35,7 +35,6 @@ export class ColorComponent implements OnInit {
       Filters.colorId='';
     }
   }
-
   allColorSelect():boolean{
     return this.currentColor===undefined?true :false;
   }
