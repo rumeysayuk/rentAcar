@@ -11,6 +11,7 @@ import {BrandAddComponent} from "./components/brand-add/brand-add.component";
 import {ColorAddComponent} from "./components/color-add/color-add.component";
 import {BrandComponent} from "./components/brand/brand.component";
 import {ColorComponent} from "./components/color/color.component";
+import {BrandUpdateComponent} from "./components/brand-update/brand-update.component";
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:"payment/:myrental",component:PaymentComponent},
   {path:"brandadd",component:BrandAddComponent},
   {path:"caradd",component:CarAddComponent},
-  {path:"coloradd",component:ColorAddComponent}
+  {path:"coloradd",component:ColorAddComponent},
+  {path:"brandupdate",component:BrandUpdateComponent}
 ];
 
 @NgModule({

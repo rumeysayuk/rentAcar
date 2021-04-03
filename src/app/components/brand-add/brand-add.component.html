@@ -1,8 +1,20 @@
-<form [formGroup]="brandAddForm">
-  <div class="col-50">
-    <label for="brandName">Marka ismi :</label>
-    <input type="text" style="margin:30px " id="brandName" class="form-label" name="brandName" formControlName="brandName" placeholder="bmw">
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-50">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <form [formGroup]="brandAddForm">
+            <label for="brandName">Marka ismi :</label>
+            <input type="text" style="margin:30px " id="brandName" class="form-label" name="brandName" formControlName="brandName" placeholder="bmw">
+          </form>
+        </div>
+        <div class="card-footer" style="text-align: center">
+          <button class="btn btn-outline-primary btn-sm"  (click)="addBrand()"
+                  [disabled]="!brandAddForm" type="submit">Marka Ekle
+          </button>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <button class="btn btn-outline-primary" style="margin: 30px; text-align: center" (click)="addBrand()"
-          [disabled]="!brandAddForm" type="submit">Marka Ekle</button>
-</form>
+ </div>

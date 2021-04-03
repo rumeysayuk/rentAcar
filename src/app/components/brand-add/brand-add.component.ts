@@ -22,7 +22,6 @@ export class BrandAddComponent implements OnInit {
   ngOnInit(): void {
     this.createBrandAddForm();
     this.addBrand();
-
   }
 
   createBrandAddForm(){
@@ -30,7 +29,6 @@ export class BrandAddComponent implements OnInit {
       brandName: ['', Validators.required]
     });
   }
-
   addBrand(){
     let brandModel=Object.assign({},this.brandAddForm.value);
     this.brandService.addBrand(brandModel).subscribe(response=> {
@@ -40,4 +38,5 @@ export class BrandAddComponent implements OnInit {
       }, 800));
     });
   }
+
 }
