@@ -46,7 +46,8 @@ export class CarImageAddComponent implements OnInit {
       var formData: any = new FormData();
       formData.append('carId', this.imageAddForm.get('carId').value);
       formData.append('file', this.imageAddForm.get('file').value);
-
+      console.log(formData)
+      console.log(this.carId)
       this.carImageService.addImage(formData).subscribe(response => {
         this.toastrService.success(response.message);
       });
