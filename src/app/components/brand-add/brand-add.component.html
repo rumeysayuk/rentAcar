@@ -5,12 +5,13 @@
         <div class="card-body">
           <form [formGroup]="brandAddForm">
             <label for="brandName">Marka ismi :</label>
-            <input type="text" style="margin:30px " id="brandName" class="form-label" name="brandName" formControlName="brandName" placeholder="bmw">
+            <input type="text" style="margin:30px " id="brandName" class="form-label" name="brandName"
+                   formControlName="brandName" placeholder="bmw">
           </form>
         </div>
         <div class="card-footer" style="text-align: center">
           <button class="btn btn-outline-primary btn-sm"  (click)="addBrand()"
-                  [disabled]="!brandAddForm" type="submit">Marka Ekle
+                  [disabled]="!brandAddForm.valid" type="submit">Marka Ekle
           </button>
         </div>
 

@@ -25,37 +25,27 @@
           <div class="mb-3">
             <label for="dailyPrice">Günlük Ücret </label>
             <div class="form-group">
-              <input type="number"
-                     id="dailyPrice"
-                     formControlName="dailyPrice" class="form-control"
+              <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control"
                      placeholder="100"/>
             </div>
           </div>
           <div  class="mb-3">
-            <select class="form-select  form-select-sm" aria-label=".form-select-sm example">
-              <option selected>Marka seç</option>
-              <option *ngFor="let brand of brands">{{brand.brandName}}</option>
+            <label >MARKA SEÇİNİZ</label>
+            <select class="form-control" formControlName="brandId" >
+              <option *ngFor="let brand of brands" [ngValue]="brand.brandId">{{brand.brandName}}</option>
             </select>
           </div>
 
           <div  class="mb-3">
-            <select class="form-select form-select-sm" style="margin-top: 20px" aria-label=".form-select-sm example">
-              <option selected>Renk seç </option>
-              <option *ngFor="let color of colors">{{color.colorName}}</option>
+            <label >RENK SEÇİNİZ</label>
+            <select  class="form-control" formControlName="colorId">
+              <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option>
             </select>
-          </div>
-          <div class="mb-3">
-            <label for="image">Resim seç </label>
-            <div class="form-group">
-              <input type="file"
-                     id="image"
-                     formControlName="image" class="form-control"/>
-            </div>
           </div>
         </form>
       </div>
       <div class="card-footer">
-        <button class="btn btn-fill btn-primary"  [disabled]="!carAddForm" (click)="addCar()">Ekle</button>
+        <button class="btn btn-fill btn-primary"  [disabled]="!carAddForm.valid" (click)="addCar()">Ekle</button>
       </div>
     </div>
   </div>

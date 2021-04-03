@@ -9,6 +9,7 @@ import {faLiraSign} from '@fortawesome/free-solid-svg-icons';
 import {ToastrService} from 'ngx-toastr';
 import {CartService} from '../../../services/cart.service';
 
+
 @Component({
   selector: 'app-car-detail',
   templateUrl: './car-detail.component.html',
@@ -61,7 +62,10 @@ export class CarDetailComponent implements OnInit {
 
     this.toastrService.success(' Araç sepete eklendi.Yönlendiriliyorsunuz.');
     this.cartService.addToCart(car);
-    this.router.navigate(['cartsummary']);
+    setTimeout(this.timeout(),2000)
+  }
+  timeout():any{
+    this.router.navigate(['/cart'])
   }
 
   getDetailsById(carId: number) {

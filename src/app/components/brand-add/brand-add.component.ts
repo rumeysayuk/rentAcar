@@ -21,7 +21,7 @@ export class BrandAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.createBrandAddForm();
-    this.addBrand();
+
   }
 
   createBrandAddForm(){
@@ -33,7 +33,8 @@ export class BrandAddComponent implements OnInit {
     let brandModel=Object.assign({},this.brandAddForm.value);
     this.brandService.addBrand(brandModel).subscribe(response=> {
       this.toastrService.success("Marka eklendi");
-      this.router.navigate(['/']).then(() => setTimeout(function() {
+      this.router.navigate(['/'])
+        .then(() => setTimeout(function() {
         window.location.reload();
       }, 800));
     });

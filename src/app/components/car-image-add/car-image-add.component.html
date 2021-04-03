@@ -1,0 +1,10 @@
+<form [formGroup]="imageAddForm" (ngSubmit)="addImage()">
+  <div class="mb-3">
+    <label for="image">Resim seç </label>
+    <div class="form-group">
+      <input type="file" (change)="uploadFile($event)"
+             accept=".png,.jpg.,.jpeg" id="image" class="form-control"/>
+    </div>
+  </div>
+  <button class="btn btn-outline-primary">Resmi Ekle</button>
+</form>

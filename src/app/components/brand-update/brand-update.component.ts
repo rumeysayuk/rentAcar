@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {Brand} from "../../models/brand";
-import {BrandService} from "../../services/brand.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ToastrService} from "ngx-toastr";
+import {Component, OnInit} from '@angular/core';
+import {Brand} from '../../models/brand';
+import {BrandService} from '../../services/brand.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-brand-update',
@@ -10,27 +11,36 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./brand-update.component.css']
 })
 export class BrandUpdateComponent implements OnInit {
-  brand:Brand;
-  brandUpdateForm:FormGroup;
-  newBrand:string;
-  constructor(private brandService:BrandService,
-              private toastrService:ToastrService,
-              private formBuilder:FormBuilder) { }
+  brandId: number;
+  brandUpdateForm: FormGroup;
+
+  constructor(private brandService: BrandService,
+              private toastrService: ToastrService,
+              private formBuilder: FormBuilder,
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    console.log(this.newBrand);
+    this.activatedRoute.params.subscribe(params => {
+      if (params['id']) {
+        this.brandId = parseInt(params['id']);
+      }
+    });
+    this.createBrandUpdateForm();
   }
 
-  createBrandUpdateForm(){
-    this.brandUpdateForm=this.formBuilder.group({
-      brandName: ['', Validators.required]
+  createBrandUpdateForm() {
+    this.brandUpdateForm = this.formBuilder.group({
+      brandName: ['', Validators.required],
+      brandId: [this.brandId],
     });
   }
-updateBrand(){
-  let brandModel=Object.assign({},this.brandUpdateForm.value);
-this.brandService.updateBrand(brandModel).subscribe(response=>{
-  this.toastrService.success("Marka güncellendi");
-});
-}
+
+  updateBrand() {
+    let brandModel = Object.assign({}, this.brandUpdateForm.value);
+    this.brandService.updateBrand(brandModel).subscribe(response => {
+      this.toastrService.success('Marka güncellendi');
+    });
+  }
 
 }

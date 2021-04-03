@@ -1,5 +1,5 @@
 export interface CarOperations{
-  carId:number;
+  id:number;
   brandId:number;
   colorId:number;
   modelYear:number;

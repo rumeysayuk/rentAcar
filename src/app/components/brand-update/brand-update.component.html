@@ -5,12 +5,13 @@
         <div class="card-body">
           <form [formGroup]="brandUpdateForm">
             <label for="brandName">Marka ismi :</label>
-            <input type="text" style="margin:30px " id="brandName" class="form-label" name="brandName" formControlName="brandName" placeholder="bmw">
+            <input type="text" style="margin:30px " id="brandName" class="form-label"
+                   name="brandName" formControlName="brandName" placeholder="bmw">
           </form>
         </div>
         <div class="card-footer" style="text-align: center">
           <button class="btn btn-outline-primary btn-sm"  (click)="updateBrand()"
-                  [disabled]="!brandUpdateForm" type="submit">Marka Güncelle
+                  [disabled]="!brandUpdateForm.valid" type="submit">Marka Güncelle
           </button>
         </div>
 
@@ -18,4 +19,3 @@
     </div>
   </div>
 </div>
-

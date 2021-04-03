@@ -12,11 +12,14 @@ import {ColorAddComponent} from "./components/color-add/color-add.component";
 import {BrandComponent} from "./components/brand/brand.component";
 import {ColorComponent} from "./components/color/color.component";
 import {BrandUpdateComponent} from "./components/brand-update/brand-update.component";
+import {BrandsListComponent} from './components/brands-list/brands-list.component';
+import {CarImageAddComponent} from './components/car-image-add/car-image-add.component';
 
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:CarComponent},
   {path:"cars",component:CarComponent},
+  {path:"car/imageadd/:id",component:CarImageAddComponent},
   {path:"brands",component:BrandComponent},
   {path:"colors",component:ColorComponent},
   {path:"cars/brand/:brandId",component:CarComponent},
@@ -30,7 +33,8 @@ const routes: Routes = [
   {path:"brandadd",component:BrandAddComponent},
   {path:"caradd",component:CarAddComponent},
   {path:"coloradd",component:ColorAddComponent},
-  {path:"brandupdate",component:BrandUpdateComponent}
+  {path:"brandupdate/:id",component:BrandUpdateComponent},
+  {path:"brands/list",component:BrandsListComponent},
 ];
 
 @NgModule({

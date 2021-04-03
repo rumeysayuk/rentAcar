@@ -1,0 +1,43 @@
+<div class="container">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">MARKA ADI</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let brand of brands">
+      <td>{{brand.brandName}}</td>
+      <td style="width: 120px;">
+        <button class="btn btn-outline-primary" routerLink="/brandupdate/{{brand.brandId}}">GÜNCELLE</button>
+      </td>
+      <td style="width: 120px;">
+        <button class="btn btn-outline-danger" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="setCurrentBrand(brand)">SİL</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">MARKA SİLME</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Silmek İstediğinizden Emin Misiniz?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+          <button type="button" (click)="deleteBrand()" class="btn btn-primary">Sil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

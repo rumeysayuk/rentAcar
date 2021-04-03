@@ -1,4 +1,5 @@
-<select class="form-select" aria-label="Default select example" [(ngModel)]="currentBrand" (change)="setCurrentBrand()">
+<select class="form-select" aria-label="Default select example"
+        [(ngModel)]="currentBrand" (change)="setCurrentBrand()">
   <option [ngValue]="allBrand" [selected]="allBrandSelect()">Tüm Markaları getir</option>
   <option *ngFor="let brand of brands" [ngValue]="brand">{{brand.brandName}}</option>
 </select>
