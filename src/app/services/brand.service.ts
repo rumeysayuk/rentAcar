@@ -32,4 +32,6 @@ export class BrandService {
   updateBrand(brand: Brand): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + 'update', brand);
   }
+
+
 }

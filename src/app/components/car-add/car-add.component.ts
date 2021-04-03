@@ -52,7 +52,7 @@ export class CarAddComponent implements OnInit {
     this.carService.addCar(carModel).subscribe(response => {
       this.toastrService.success('Araç eklendi');
       this.carService.getLastCar().subscribe(response => {
-        this.lastAddedCarId = response.data[response.data.length - 1].id;
+        this.lastAddedCarId = response.data[response.data.length - 1].carId;
         this.router.navigate(['/car/imageadd/', this.lastAddedCarId]);
       });
     });
