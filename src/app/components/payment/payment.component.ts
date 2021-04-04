@@ -55,6 +55,12 @@ export class PaymentComponent implements OnInit {
       this.router.navigate(['/']).then(() => setTimeout(function() {
         window.location.reload();
       }, 800));
+    }, error => {
+      if (error.error.Errors.length > 0) {
+        for (let i = 0; i < error.error.Errors.length; i++) {
+          this.toastrService.error(error.error.Errors[i].ErrorMessage);
+        }
+      }
     });
   }
 }

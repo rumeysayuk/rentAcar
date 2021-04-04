@@ -39,7 +39,7 @@ const routes: Routes = [
   {path:"coloradd",component:ColorAddComponent},
   {path:"brandupdate/:id",component:BrandUpdateComponent},
   {path:"colorupdate/:id",component:ColorUpdateComponent},
-  {path:"carupdate/:carId",component:CarUpdateComponent},
+  {path:"carupdate/:id",component:CarUpdateComponent},
   {path:"brands/list",component:BrandsListComponent},
   {path:"cars/list",component:CarsListComponent},
   {path:"colors/list",component:ColorsListComponent},

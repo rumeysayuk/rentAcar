@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {CarService} from "../../services/car.service";
-import {ToastrService} from "ngx-toastr";
-import {Car} from "../../models/car";
+import {Component, OnInit} from '@angular/core';
+import {CarService} from '../../services/car.service';
+import {ToastrService} from 'ngx-toastr';
+import {Car} from '../../models/car';
 
 
 @Component({
@@ -11,19 +11,24 @@ import {Car} from "../../models/car";
 })
 export class CarsListComponent implements OnInit {
 
-  currentCar:Car;
-  cars:Car[]=[];
-  constructor(private carService:CarService,
-              private toastrService:ToastrService) { }
+  currentCar: Car;
+  cars: Car[] = [];
+
+  constructor(private carService: CarService,
+              private toastrService: ToastrService) {
+  }
 
   ngOnInit(): void {
- this.getCars();
+    this.getCars();
   }
 
   setCurrentCar(car: Car) {
     this.currentCar = car;
-    console.log("degvdegv "+this.currentCar)
 
+  }
+
+  writeCar(car: Car) {
+    console.log(car.carId);
   }
 
   deleteCar() {
@@ -47,7 +52,7 @@ export class CarsListComponent implements OnInit {
   getCars() {
     this.carService.getCars().subscribe(response => {
       this.cars = response.data;
-      console.log(this.cars)
+      console.log(this.cars);
     });
   }
 }
