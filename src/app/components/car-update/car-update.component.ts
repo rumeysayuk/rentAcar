@@ -5,7 +5,6 @@ import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute} from "@angular/router";
 import {BrandService} from "../../services/brand.service";
 import {ColorService} from "../../services/color.service";
-import {Brand} from "../../models/brand";
 
 @Component({
   selector: 'app-car-update',
@@ -14,7 +13,6 @@ import {Brand} from "../../models/brand";
 })
 export class CarUpdateComponent implements OnInit {
   carId:number;
-  brands:Brand[]=[];
   carUpdateForm:FormGroup;
   constructor(private carService:CarService,
               private brandService:BrandService,
@@ -24,7 +22,6 @@ export class CarUpdateComponent implements OnInit {
               private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.brands)
     this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
         this.carId = parseInt(params['id']);
@@ -49,11 +46,5 @@ export class CarUpdateComponent implements OnInit {
     this.carService.updateCar(carModel).subscribe(response => {
       this.toastrService.success('Araç bilgileri güncellendi');
     });
-  }
-
-  getColors(){
-    this.brandService.getBrands().subscribe(response=>{
-      this.brands=response.data;
-    })
   }
 }

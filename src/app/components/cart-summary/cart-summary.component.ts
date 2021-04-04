@@ -78,7 +78,7 @@ export class CartSummaryComponent implements OnInit {
   getCart() {
     if (this.cartService.list().length > 0) {
       this.cartItems = this.cartService.list();
-      this.carId = this.cartItems[this.cartItems.length - 1].car.id;
+      this.carId = this.cartItems[this.cartItems.length - 1].car.carId;
       this.totalPrice = this.cartItems[this.cartItems.length - 1].car.dailyPrice;
     } else {
       this.router.navigate(['/']);
@@ -94,7 +94,7 @@ export class CartSummaryComponent implements OnInit {
     if (this.checkRent()) {
       let myRental: Rental = {
         id: null,
-        carId: this.cartItems[0].car.id,
+        carId: this.cartItems[0].car.carId,
         userId: 2,
         rentDate: new Date(this.rentDate.year, this.rentDate.month - 1, this.rentDate.day + 1),
         returnDate: new Date(this.returnDate.year, this.returnDate.month - 1, this.returnDate.day + 1)

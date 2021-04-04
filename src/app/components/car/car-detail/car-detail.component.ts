@@ -33,8 +33,8 @@ export class CarDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      if (params['id']) {
-        this.getDetailsById(params['id']);
+      if (params['carId']) {
+        this.getDetailsById(params['carId']);
       }
     });
     document.addEventListener('DOMContentLoaded', function() {
@@ -65,7 +65,7 @@ export class CarDetailComponent implements OnInit {
     setTimeout(this.timeout(),2000)
   }
   timeout():any{
-    this.router.navigate(['/cart'])
+    this.router.navigate(['/cartsummary'])
   }
 
   getDetailsById(carId: number) {

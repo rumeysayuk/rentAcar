@@ -31,7 +31,7 @@
             <input type="text" id="cname" name="cardname" formControlName="cardHolderName" placeholder="Rümeysa Yük">
 
             <label for="ccnum">Kredi Kartı Numarası</label>
-            <input type="text" id="ccnum" name="cardnumber" formControlName="cardNumber" placeholder="1111222233334444">
+            <input type="text" id="ccnum" name="cardnumber"  formControlName="cardNumber" placeholder="1111222233334444">
             <label for="expirationMonth">Ay</label>
             <input type="number" id="expirationMonth" formControlName="expirationMonth" name="expirationMonth" placeholder="5">
 
@@ -52,7 +52,7 @@
           <input type="text" placeholder="Kredi Kart İsmi">
           <input type="checkbox" id="saveCreditCard" checked="checked" name="sameadr">Kredi Kartı Bilgilerimi Kaydet
         </label>
-        <button (click)="addRental()" [disabled]="!creditCardForm" class="btn">Ödemeyi Tamamla</button>
+        <button (click)="addRental()" [disabled]="!creditCardForm.valid" class="btn">Ödemeyi Tamamla</button>
       </form>
     </div>
   </div>

@@ -22,8 +22,8 @@ export class CartService {
   }
 
   removeFromCart(car: Car) {
-    // @ts-ignore
-    let item: CartItem = CartItems.find(c => c.car.id === car.id);
+
+    let item: CartItem = CartItems.find(c => c.car.carId=== car.carId);
     CartItems.splice(CartItems.indexOf(item), 1);
   }
 }
