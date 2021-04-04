@@ -33,7 +33,7 @@
             <label for="ccnum">Kredi Kartı Numarası</label>
             <input type="text" id="ccnum" name="cardnumber"  formControlName="cardNumber" placeholder="1111222233334444">
             <label for="expirationMonth">Ay</label>
-            <input type="number" id="expirationMonth" formControlName="expirationMonth" name="expirationMonth" placeholder="5">
+            <input type="number" id="expirationMonth" maxlength="12" minlength="1"  formControlName="expirationMonth" name="expirationMonth" placeholder="5">
 
             <div class="row">
               <div class="col-50">
