@@ -2,20 +2,26 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">MARKA ADI</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">Marka ADI</th>
+      <th scope="col">Renk ADI</th>
+      <th scope="col">GÜnlük Ücret</th>
+      <th scope="col">Model Yılı</th>
+      <th scope="col">Tanım</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let brand of brands">
-      <td>{{brand.brandName}}</td>
+    <tr *ngFor="let car of cars">
+      <td>{{car.brandName}}</td>
+      <td>{{car.colorName}}</td>
+      <td>{{car.dailyPrice}}</td>
+      <td>{{car.modelYear}}</td>
+      <td>{{car.description}}</td>
       <td style="width: 120px;">
-        <button class="btn btn-outline-primary" routerLink="/brandupdate/{{brand.brandId}}">GÜNCELLE</button>
+        <button class="btn btn-outline-primary" routerLink="/carupdate/{{car.id}}">GÜNCELLE</button>
       </td>
       <td style="width: 120px;">
         <button class="btn btn-outline-danger" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" (click)="setCurrentBrand(brand)">SİL
+                data-bs-target="#exampleModal" (click)="setCurrentCar(car)">SİL
         </button>
       </td>
     </tr>
@@ -26,7 +32,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">MARKA SİLME</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Araç SİLME</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -34,10 +40,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
-          <button type="button" (click)="deleteBrand()" class="btn btn-primary">Sil</button>
+          <button type="button" (click)="deleteCar()" class="btn btn-primary">Sil</button>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+

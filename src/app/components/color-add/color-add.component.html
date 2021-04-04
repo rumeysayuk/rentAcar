@@ -6,6 +6,6 @@
     <input type="text" style="margin:30px " id="colorName" class="form-label" name="colorName" formControlName="colorName" placeholder="mor">
   </div>
   <button class="btn btn-outline-primary" style="margin: 30px; text-align: center"
-          (click)="addColor()" [disabled]="!colorAddForm" type="submit">Renk Ekle</button>
+          (click)="addColor()" [disabled]="!colorAddForm.valid" type="submit">Renk Ekle</button>
 </form>
 

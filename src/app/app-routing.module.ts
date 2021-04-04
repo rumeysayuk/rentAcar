@@ -14,6 +14,10 @@ import {ColorComponent} from "./components/color/color.component";
 import {BrandUpdateComponent} from "./components/brand-update/brand-update.component";
 import {BrandsListComponent} from './components/brands-list/brands-list.component';
 import {CarImageAddComponent} from './components/car-image-add/car-image-add.component';
+import {ColorUpdateComponent} from "./components/color-update/color-update.component";
+import {ColorsListComponent} from "./components/colors-list/colors-list.component";
+import {CarUpdateComponent} from "./components/car-update/car-update.component";
+import {CarsListComponent} from "./components/cars-list/cars-list.component";
 
 
 const routes: Routes = [
@@ -34,7 +38,11 @@ const routes: Routes = [
   {path:"caradd",component:CarAddComponent},
   {path:"coloradd",component:ColorAddComponent},
   {path:"brandupdate/:id",component:BrandUpdateComponent},
+  {path:"colorupdate/:id",component:ColorUpdateComponent},
+  {path:"carupdate/:carId",component:CarUpdateComponent},
   {path:"brands/list",component:BrandsListComponent},
+  {path:"cars/list",component:CarsListComponent},
+  {path:"colors/list",component:ColorsListComponent},
 ];
 
 @NgModule({

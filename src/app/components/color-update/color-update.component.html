@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-50">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <form [formGroup]="colorUpdateForm">
+            <label for="colorName">Renk ismi :</label>
+            <input type="text" style="margin:30px " id="colorName" class="form-label"
+                   name="colorName" formControlName="colorName" placeholder="mor">
+          </form>
+        </div>
+        <div class="card-footer" style="text-align: center">
+          <button class="btn btn-outline-primary btn-sm" (click)="updateColor()"
+                  [disabled]="!colorUpdateForm.valid" type="submit">Renk Güncelle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

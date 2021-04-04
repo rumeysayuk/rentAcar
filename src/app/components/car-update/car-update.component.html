@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-50">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <form [formGroup]="carUpdateForm">
+            <label for="colorName">Renk ismi :</label>
+            <input type="text" style="margin:30px " id="colorName" class="form-label"
+                   name="colorName" formControlName="colorName" placeholder="mor">
+
+            <label for="brandName">Marka ismi :</label>
+            <input type="text" style="margin:30px " id="brandName" class="form-label"
+                   name="brandName" formControlName="brandName" placeholder="bmw">
+
+            <label for="modelYear">Model Yılı :</label>
+            <input type="number" style="margin:30px " id="modelYear" class="form-label"
+                   name="modelYear" formControlName="modelYear" placeholder="2020">
+
+            <label for="dailyPrice">Günlük Ücret :</label>
+            <input type="number" style="margin:30px " id="dailyPrice" class="form-label"
+                   name="dailyPrice" formControlName="dailyPrice" placeholder="150">
+
+            <label for="description">Özellik :</label>
+            <input type="text" style="margin:30px " id="description" class="form-label"
+                   name="description" formControlName="description" placeholder="uçan araba">
+          </form>
+        </div>
+        <div class="card-footer" style="text-align: center">
+          <button class="btn btn-outline-primary btn-sm" (click)="updateCar()"
+                  [disabled]="!carUpdateForm.valid" type="submit">Araç Bilgilerini Güncelle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
