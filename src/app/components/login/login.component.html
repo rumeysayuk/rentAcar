@@ -1,16 +1,16 @@
 <body>
-<form class="login-form">
+<form class="login-form" [formGroup]="loginForm">
   <h2>Giriş</h2>
   <div class="txtb">
-    <input formControlName="email" type="email">
-    <span data-placeholder="E-Mail"></span>
+    <input formControlName="email" id="email" for="email"  type="email">
+    <span data-placeholder="E-Mail" ></span>
   </div>
   <div class="txtb">
-    <input formControlName="password" type="password">
-    <span data-placeholder="Şifre"></span>
+    <input formControlName="password" id="password" for="password" type="password">
+    <span data-placeholder="Şifre" ></span>
   </div>
-  <input  type="submit" class="logbtn" value="Giriş">
-  <div class="bottom-text"> Hesabın mı yok? <a routerLink="/register">Kayıt Ol</a></div>
+  <input  type="submit" class="logbtn" value="Giriş" [disabled]="!loginForm.valid" (click)="login()">
+  <div class="bottom-text"> Hesabın mı yok? <a routerLink="/register" >Kayıt Ol</a></div>
   <div class="changePassword"> Şifreni mi unuttun? <a routerLink="/changepassword">Değiştir</a></div>
 </form>
 </body>

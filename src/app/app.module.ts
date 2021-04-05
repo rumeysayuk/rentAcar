@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import{AppRoutingModule} from "./app-routing.module";
@@ -35,6 +35,7 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
 import { ColorsListComponent } from './components/colors-list/colors-list.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { CarsListComponent } from './components/cars-list/cars-list.component';
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -78,7 +79,9 @@ import { CarsListComponent } from './components/cars-list/cars-list.component';
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

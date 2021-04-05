@@ -18,6 +18,7 @@ import {ColorUpdateComponent} from "./components/color-update/color-update.compo
 import {ColorsListComponent} from "./components/colors-list/colors-list.component";
 import {CarUpdateComponent} from "./components/car-update/car-update.component";
 import {CarsListComponent} from "./components/cars-list/cars-list.component";
+import {LoginGuard} from "./guards/login.guard";
 
 
 const routes: Routes = [
@@ -33,9 +34,9 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"login",component:LoginComponent},
   {path:"cartsummary",component:CartSummaryComponent},
-  {path:"payment/:myrental",component:PaymentComponent},
+  {path:"payment/:myrental",component:PaymentComponent,canActivate:[LoginGuard]},
   {path:"brandadd",component:BrandAddComponent},
-  {path:"caradd",component:CarAddComponent},
+  {path:"caradd",component:CarAddComponent,canActivate:[LoginGuard]},
   {path:"coloradd",component:ColorAddComponent},
   {path:"brandupdate/:id",component:BrandUpdateComponent},
   {path:"colorupdate/:id",component:ColorUpdateComponent},

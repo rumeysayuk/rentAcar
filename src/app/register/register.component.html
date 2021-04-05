@@ -1,27 +1,27 @@
 <body>
 
-<form action="index.html" class="login-form">
+<form action="index.html" class="login-form" [formGroup]="registerForm">
   <h2>Kayıt</h2>
   <div class="txtb">
-    <input type="text">
+    <input type="text" formControlName="firstName" id="firstName">
     <span data-placeholder="Adınız"></span>
   </div>
   <div class="txtb">
-    <input type="text">
+    <input type="text" formControlName="lastName" id="lastName">
     <span data-placeholder="Soyadınız"></span>
   </div>
   <div class="txtb">
-    <input type="email">
+    <input type="email" formControlName="email" id="email" >
     <span data-placeholder="Email"></span>
   </div>
 
-  <div class="txtb">
-    <input type="password">
+  <div class="txtb"  >
+    <input type="password" formControlName="password" id="password">
     <span data-placeholder="Şifre"></span>
   </div>
 
 
-  <input type="submit" class="logbtn" value="Kayıt Ol">
+  <input type="submit" class="logbtn" [disabled]="!registerForm.valid" (click)="register()" value="Kayıt Ol">
 
   <div class="bottom-text"> Hesabın var mı? <a routerLink="/login">Giriş</a></div>
 

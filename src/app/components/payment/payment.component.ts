@@ -6,6 +6,7 @@ import {Rental} from '../../models/rental';
 import {RentalService} from '../../services/rental.service';
 import {ToastrService} from 'ngx-toastr';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-payment',
@@ -26,7 +27,8 @@ export class PaymentComponent implements OnInit {
               private rentalService: RentalService,
               private toastrService: ToastrService,
               private formBuilder: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private authService:AuthService) {
   }
 
   ngOnInit(): void {
@@ -63,4 +65,6 @@ export class PaymentComponent implements OnInit {
       }
     });
   }
+
+
 }

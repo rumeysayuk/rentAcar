@@ -53,6 +53,12 @@ export class CarAddComponent implements OnInit {
       this.carService.getLastCar().subscribe(response => {
         this.lastAddedCarId = response.data[response.data.length - 1].carId;
         this.router.navigate(['/car/imageadd/', this.lastAddedCarId]);
+      }, error => {
+        if (error.error.Errors.length > 0) {
+          for (let i = 0; i < error.error.Errors.length; i++) {
+            this.toastrService.error(error.error.Errors[i].ErrorMessage);
+          }
+        }
       });
     });
   }
