@@ -12,6 +12,7 @@ import {ToastrService} from 'ngx-toastr';
 export class CarImageAddComponent implements OnInit {
   carId: number;
   imageAddForm: FormGroup;
+  fileName: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private formBuilder: FormBuilder,
@@ -35,30 +36,36 @@ export class CarImageAddComponent implements OnInit {
     });
   }
 
+  checkFileExtension() {
+    var idxDot = this.fileName.lastIndexOf('.') + 1;
+    var extFile = this.fileName.substr(idxDot, this.fileName.length).toLowerCase();
+    return extFile == 'jpg' || extFile == 'png' || extFile == 'jpeg';
+  }
+
   uploadFile(event: any) {
     const file = (event.target as HTMLInputElement).files[0];
-    this.imageAddForm.patchValue({file: file});
-    this.imageAddForm.get('file').updateValueAndValidity();
+    this.fileName = file.name;
+    if (this.checkFileExtension()) {
+      this.imageAddForm.patchValue({file: file});
+      this.imageAddForm.get('file').updateValueAndValidity();
+    } else {
+      this.toastrService.error('Sadece Jpg/Jpeg/Png Yüklenebilir.');
+      setTimeout(() => {
+        window.location.reload();
+      }, 1100);
+    }
   }
 
   addImage() {
-    if (this.imageAddForm.valid) {
+    if (this.imageAddForm.valid && this.checkFileExtension()) {
       var formData: any = new FormData();
       formData.append('carId', this.imageAddForm.get('carId').value);
       formData.append('file', this.imageAddForm.get('file').value);
       this.carImageService.addImage(formData).subscribe(response => {
         this.toastrService.success(response.message);
       });
+    } else {
+      this.toastrService.error('Form Bilgileriniz Eksik.');
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
