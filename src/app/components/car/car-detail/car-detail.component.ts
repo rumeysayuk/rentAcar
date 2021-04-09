@@ -36,7 +36,6 @@ export class CarDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (params['carId']) {
         this.getDetailsById(params['carId']);
-
       }
     });
     document.addEventListener('DOMContentLoaded', function() {
@@ -45,7 +44,6 @@ export class CarDetailComponent implements OnInit {
       if (el != null) {
         el.addEventListener('click', function() {
           el.classList.toggle('active');
-
           if (el.classList.contains('active')) {
             if (text != null) {
               text.innerHTML = 'Sepete Eklendi';

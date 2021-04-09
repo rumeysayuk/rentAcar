@@ -37,6 +37,7 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { CarsListComponent } from './components/cars-list/cars-list.component';
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import { FindeksComponent } from './components/findeks/findeks.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { FindeksComponent } from './components/findeks/findeks.component';
     ColorsListComponent,
     CarUpdateComponent,
     CarsListComponent,
-    FindeksComponent
+    FindeksComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserAnimationsModule,

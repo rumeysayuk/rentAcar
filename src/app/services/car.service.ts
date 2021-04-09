@@ -47,7 +47,6 @@ export class CarService {
 
   addCar(car: CarOperations): Observable<ResponseModel> {
     let newPath = this.apiUrl + 'add';
-    console.log(car);
     return this.httpClient.post<ResponseModel>(newPath, car);
   }
 

@@ -4,5 +4,4 @@ export interface Users{
   lastName:string;
   email:string;
   status:boolean;
-
 }

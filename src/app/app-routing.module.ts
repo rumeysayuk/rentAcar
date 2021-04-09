@@ -20,6 +20,7 @@ import {CarUpdateComponent} from "./components/car-update/car-update.component";
 import {CarsListComponent} from "./components/cars-list/cars-list.component";
 import {LoginGuard} from "./guards/login.guard";
 import {FindeksComponent} from "./components/findeks/findeks.component";
+import {ProfileComponent} from './components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path:"cars/list",component:CarsListComponent,canActivate:[LoginGuard]},
   {path:"colors/list",component:ColorsListComponent},
   {path:"findeks",component:FindeksComponent},
+  {path:"profile",component:ProfileComponent, canActivate:[LoginGuard]},
 ];
 
 @NgModule({
