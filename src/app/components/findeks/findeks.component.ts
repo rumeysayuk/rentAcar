@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
-import {CarService} from "../../services/car.service";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
+import {CarService} from '../../services/car.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-findeks',
@@ -15,27 +16,29 @@ export class FindeksComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private carService: CarService,
               private toastrService: ToastrService,
-              private router:Router) {
+              private router: Router,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.createFİndeksForm();
+    this.createFindeksForm();
 
   }
 
-  createFİndeksForm() {
+  createFindeksForm() {
     this.findeksForm = this.formBuilder.group({
-      tcNo: ["", Validators.required],
-      birthyear: ["", Validators.required]
-    })
+      tcNo: ['', Validators.required],
+      dateOfYear: ['', Validators.required]
+    });
   }
 
   findeksCalculate() {
     let findeksModel = Object.assign({}, this.findeksForm.value);
-    this.carService.getFindeksPoint(findeksModel).subscribe(response => {
-      this.toastrService.success("Findeks Hesaplandı");
+    this.userService.getUserFindeks(findeksModel).subscribe(response => {
+      this.toastrService.success('Findeks Hesaplandı');
+      localStorage.setItem('findeks', response.data.findeksScore.toString());
       this.router.navigate(['/'])
-        .then(() => setTimeout(function () {
+        .then(() => setTimeout(function() {
           window.location.reload();
         }, 800));
     });

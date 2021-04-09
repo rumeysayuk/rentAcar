@@ -5,12 +5,13 @@
         <div class="card-title">Findeks Hesapla</div>
         <div class="card-body">
           <form [formGroup]="findeksForm">
-            <label for="tcNo">Tc no:</label>
-            <input type="text" style="margin:20px" id="tcNo" class="form-label" name="tcNo"
+            <label for="tcNo" style="float: left" >Tc no:</label>
+            <input style="float: right" type="text" id="tcNo" class="form-label" name="tcNo"
                    formControlName="tcNo">
-            <label for="birthyear">Doğum yılı:</label>
-            <input type="date" style="margin:20px " id="birthyear" class="form-label" name="birthyear"
-                   formControlName="birthyear">
+
+            <label for="dateOfYear" style="float: left;">Doğum yılı:</label>
+            <input style="float: right" type="number" id="dateOfYear" class="form-label" name="dateOfYear"
+                   formControlName="dateOfYear">
           </form>
         </div>
         <div class="card-footer" style="text-align: center">

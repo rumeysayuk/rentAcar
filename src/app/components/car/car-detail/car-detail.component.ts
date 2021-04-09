@@ -8,7 +8,6 @@ import {CarService} from '../../../services/car.service';
 import {faLiraSign} from '@fortawesome/free-solid-svg-icons';
 import {ToastrService} from 'ngx-toastr';
 import {CartService} from '../../../services/cart.service';
-import {AuthService} from "../../../services/auth.service";
 
 
 @Component({
@@ -59,23 +58,27 @@ export class CarDetailComponent implements OnInit {
         });
       }
     });
-    console.log(this.cars);
   }
 
   goCart(car: Car) {
-
-    this.toastrService.success(' Araç sepete eklendi.Yönlendiriliyorsunuz.');
-    this.cartService.addToCart(car);
-    setTimeout(this.timeout(),2000)
+    console.log(car);
+    if (parseInt(localStorage.getItem('findeks')) > car.findeksPoint) {
+      this.toastrService.success(' Araç sepete eklendi.Yönlendiriliyorsunuz.');
+      this.cartService.addToCart(car);
+      setTimeout(this.timeout(), 2000);
+    } else {
+      this.toastrService.info('Findeks Puanınız Yetersiz. Bu aracı Kiralayamazsınız..' + car.findeksPoint + ' Gerekli');
+    }
   }
-  timeout():any{
-    this.router.navigate(['/cartsummary'])
+
+  timeout(): any {
+    this.router.navigate(['/cartsummary']);
   }
 
   getDetailsById(carId: number) {
     this.carService.getCarDetailById(carId).subscribe(response => {
       this.cars = response.data;
-      console.log(this.cars)
+      console.log(this.cars);
     });
     this.dataLoaded = true;
   }

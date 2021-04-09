@@ -9,7 +9,7 @@
     <input formControlName="password" id="password" type="password">
     <span data-placeholder="Şifre" ></span>
   </div>
-  <input  type="submit" class="logbtn" value="Giriş" routerLink="/" [disabled]="!loginForm.valid" (click)="login()">
+  <input  type="submit" class="logbtn" value="Giriş" [disabled]="!loginForm.valid" (click)="login()">
   <div class="bottom-text"> Hesabın mı yok? <a routerLink="/register" >Kayıt Ol</a></div>
   <div class="changePassword"> Şifreni mi unuttun? <a routerLink="/changepassword">Değiştir</a></div>
 </form>
