@@ -4,6 +4,9 @@ import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {ToastrService} from "ngx-toastr";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {Car} from "../../models/car";
+import {Users} from "../../models/users";
 
 @Component({
   selector: 'app-navi',
@@ -11,10 +14,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./navi.component.css']
 })
 export class NaviComponent implements OnInit {
-
+  users: Users [] = [];
+  dataLoaded = true;
   constructor(private  toastrService: ToastrService,
               private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private userService:UserService) {
   }
 
   githubIcon = faGithub;
@@ -22,6 +27,9 @@ export class NaviComponent implements OnInit {
   userIcon = faUser;
 
   ngOnInit(): void {
+    this.userCheck();
+    this.getUsers();
+    console.log(this.users);
   }
 
   userCheck() {
@@ -30,5 +38,18 @@ export class NaviComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  getUsers() {
+    this.userService.getUsers().subscribe(response => {
+      this.users = response.data
+      console.log(response.data)
+    });
+    this.dataLoaded = true;
+
+  }
+  getUsersById(id:number) {
+    this.userService.getUsersById(id).subscribe(response => {this.users = response.data});
+    this.dataLoaded = true;
   }
 }

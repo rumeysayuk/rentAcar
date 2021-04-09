@@ -20,16 +20,15 @@
         <fa-icon [icon]="githubIcon" class="fa-2x instagramIcon"></fa-icon> </a></li>
       <li> <a target="_blank" href="https://www.instagram.com/rumeysayuk1/">
         <fa-icon [icon]="instagramIcon" class="fa-2x githubIcon"></fa-icon></a></li>
-      <li> <a *ngIf="userCheck()==false" routerLink="/login"><fa-icon [icon]="userIcon" class="fa-2x userIcon"></fa-icon> </a></li>
+      <li> <a *ngIf="!userCheck()" routerLink="/login"><fa-icon [icon]="userIcon" class="fa-2x userIcon"></fa-icon> </a></li>
     </ul>
     <div class="dropdown">
-      <button *ngIf="userCheck()==true" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
+      <button *ngIf="userCheck()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><a class="dropdown-item" href="#">Bİlgilerimi güncelle</a></li>
+        <li><a class="dropdown-item" href="#">Kiradaki araçlar</a></li>
       </ul>
     </div>
   </div>
