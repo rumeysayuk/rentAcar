@@ -3,6 +3,7 @@ import {Car} from '../../models/car';
 import {CarService} from '../../services/car.service';
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../../environments/environment";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-car',
@@ -15,7 +16,9 @@ export class CarComponent implements OnInit {
   dataLoaded = true;
   filterText='';
 
-  constructor(private carService: CarService,private activatedRoute:ActivatedRoute ) { }
+  constructor(private carService: CarService,
+              private activatedRoute:ActivatedRoute ,
+              private authService:AuthService) { }
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       if (params['brandId'] && params['colorId'])

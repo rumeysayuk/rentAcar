@@ -19,6 +19,7 @@ import {ColorsListComponent} from "./components/colors-list/colors-list.componen
 import {CarUpdateComponent} from "./components/car-update/car-update.component";
 import {CarsListComponent} from "./components/cars-list/cars-list.component";
 import {LoginGuard} from "./guards/login.guard";
+import {FindeksComponent} from "./components/findeks/findeks.component";
 
 
 const routes: Routes = [
@@ -42,8 +43,9 @@ const routes: Routes = [
   {path:"colorupdate/:id",component:ColorUpdateComponent},
   {path:"carupdate/:id",component:CarUpdateComponent},
   {path:"brands/list",component:BrandsListComponent},
-  {path:"cars/list",component:CarsListComponent},
+  {path:"cars/list",component:CarsListComponent,canActivate:[LoginGuard]},
   {path:"colors/list",component:ColorsListComponent},
+  {path:"findeks",component:FindeksComponent},
 ];
 
 @NgModule({

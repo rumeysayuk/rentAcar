@@ -5,4 +5,5 @@ export interface CarOperations{
   modelYear:number;
   dailyPrice:number;
   description:string;
+  findeksPoint:number;
 }

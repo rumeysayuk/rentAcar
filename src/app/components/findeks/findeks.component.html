@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-50">
+      <div class="card" style="width: 18rem; margin-top: 10px">
+        <div class="card-title">Findeks Hesapla</div>
+        <div class="card-body">
+          <form [formGroup]="findeksForm">
+            <label for="tcNo">Tc no:</label>
+            <input type="text" style="margin:20px" id="tcNo" class="form-label" name="tcNo"
+                   formControlName="tcNo">
+            <label for="birthyear">Doğum yılı:</label>
+            <input type="date" style="margin:20px " id="birthyear" class="form-label" name="birthyear"
+                   formControlName="birthyear">
+          </form>
+        </div>
+        <div class="card-footer" style="text-align: center">
+          <button class="btn btn-outline-primary btn-sm" (click)="findeksCalculate()"
+                  [disabled]="!findeksForm.valid"  type="submit">Findeks Hesapla
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

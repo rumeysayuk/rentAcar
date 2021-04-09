@@ -8,4 +8,5 @@ export interface Car{
   imageId:number;
   imagePath:string;
   modelYear: number;
+  findeksPoint:number;
 }

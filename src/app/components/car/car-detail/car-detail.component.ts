@@ -8,6 +8,7 @@ import {CarService} from '../../../services/car.service';
 import {faLiraSign} from '@fortawesome/free-solid-svg-icons';
 import {ToastrService} from 'ngx-toastr';
 import {CartService} from '../../../services/cart.service';
+import {AuthService} from "../../../services/auth.service";
 
 
 @Component({
@@ -32,9 +33,11 @@ export class CarDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(params => {
       if (params['carId']) {
         this.getDetailsById(params['carId']);
+
       }
     });
     document.addEventListener('DOMContentLoaded', function() {
@@ -56,6 +59,7 @@ export class CarDetailComponent implements OnInit {
         });
       }
     });
+    console.log(this.cars);
   }
 
   goCart(car: Car) {
@@ -71,6 +75,7 @@ export class CarDetailComponent implements OnInit {
   getDetailsById(carId: number) {
     this.carService.getCarDetailById(carId).subscribe(response => {
       this.cars = response.data;
+      console.log(this.cars)
     });
     this.dataLoaded = true;
   }

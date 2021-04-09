@@ -22,8 +22,8 @@ export class CarImageAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      if (params['id']) {
-        this.carId = parseInt(params['id']);
+      if (params['carId']) {
+        this.carId = parseInt(params['carId']);
       }
     });
     this.createImageAddform();

@@ -8,4 +8,5 @@ export interface CarDetails{
   modelYear: number;
   imagePath: string;
   date :Date;
+  findeksPoint:number;
 }
