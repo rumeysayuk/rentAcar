@@ -37,13 +37,14 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getSavedCard();
     this.activatedRoute.params.subscribe(params => {
       if (params['myrental']) {
         this.rental = JSON.parse(params['myrental']);
       }
     });
     this.createCreditCardForm();
-    this.getSavedCard();
+
   }
 
   createCreditCardForm() {
