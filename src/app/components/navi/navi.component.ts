@@ -5,6 +5,7 @@ import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import {LocalStorageService} from "../../services/local-storage.service";
 
 @Component({
   selector: 'app-navi',
@@ -20,7 +21,8 @@ export class NaviComponent implements OnInit {
   constructor(private  toastrService: ToastrService,
               private authService: AuthService,
               private router: Router,
-              private userService: UserService) {
+              private userService: UserService,
+              private localStorage:LocalStorageService) {
   }
 
   ngOnInit(): void {
@@ -37,13 +39,14 @@ export class NaviComponent implements OnInit {
   }
 
   LogOut() {
-    localStorage.clear();
+    this.localStorage.Clear()
+
     window.location.reload();
   }
 
   getUsersById() {
     if (parseInt(localStorage.getItem('id'))) {
-      this.userService.getUsersById(parseInt(localStorage.getItem('id'))).subscribe(response => {
+      this.userService.getUsersById(parseInt(this.localStorage.getItem('id'))).subscribe(response => {
         this.userName = response.data.firstName + ' ' + response.data.lastName;
       });
     }

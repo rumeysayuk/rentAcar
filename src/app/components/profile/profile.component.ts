@@ -4,6 +4,7 @@ import {UserService} from '../../services/user.service';
 import {ToastrService} from 'ngx-toastr';
 import {Users} from '../../models/users';
 import {AuthService} from '../../services/auth.service';
+import {LocalStorageService} from "../../services/local-storage.service";
 
 @Component({
   selector: 'app-profile',
@@ -18,11 +19,12 @@ export class ProfileComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private toastrService: ToastrService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private localStorage:LocalStorageService) {
   }
 
   ngOnInit(): void {
-    this.userService.getUsersById(parseInt(localStorage.getItem('id'))).subscribe(response => {
+    this.userService.getUsersById(parseInt(this.localStorage.getItem('id'))).subscribe(response => {
       this.user = response.data;
       this.createUserUpdateForm();
     });

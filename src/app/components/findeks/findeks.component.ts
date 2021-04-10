@@ -4,6 +4,7 @@ import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 import {CarService} from '../../services/car.service';
 import {UserService} from '../../services/user.service';
+import {LocalStorageService} from "../../services/local-storage.service";
 
 @Component({
   selector: 'app-findeks',
@@ -17,7 +18,8 @@ export class FindeksComponent implements OnInit {
               private carService: CarService,
               private toastrService: ToastrService,
               private router: Router,
-              private userService: UserService) {
+              private userService: UserService,
+              private localStorage:LocalStorageService) {
   }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class FindeksComponent implements OnInit {
     let findeksModel = Object.assign({}, this.findeksForm.value);
     this.userService.getUserFindeks(findeksModel).subscribe(response => {
       this.toastrService.success('Findeks Hesaplandı');
-      localStorage.setItem('findeks', response.data.findeksScore.toString());
+      this.localStorage.setItem('findeks', response.data.findeksScore.toString());
       this.router.navigate(['/'])
         .then(() => setTimeout(function() {
           window.location.reload();

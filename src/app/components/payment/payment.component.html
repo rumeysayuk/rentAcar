@@ -31,26 +31,26 @@
             <input type="text" id="cname" name="cardname" formControlName="cardHolderName" placeholder="Rümeysa Yük">
 
             <label for="ccnum">Kredi Kartı Numarası</label>
-            <input type="text" id="ccnum" name="cardnumber"  formControlName="cardNumber" placeholder="1111222233334444">
+            <input type="text" id="ccnum" name="cardnumber"  minlength="16" maxLength="16" formControlName="cardNumber" placeholder="1111222233334444">
             <label for="expirationMonth">Ay</label>
-            <input type="number" id="expirationMonth" maxlength="12" minlength="1"  formControlName="expirationMonth" name="expirationMonth" placeholder="5">
+            <input type="number" id="expirationMonth"  minlength="1" maxLength="2"  formControlName="expirationMonth" name="expirationMonth" placeholder="5">
 
             <div class="row">
               <div class="col-50">
                 <label for="expirationYear">Yıl</label>
-                <input type="number" id="expirationYear" formControlName="expirationYear" name="expirationYear" placeholder="2025">
+                <input type="number" id="expirationYear" formControlName="expirationYear" minlength="4" maxlength="4" name="expirationYear" placeholder="2025">
 
               </div>
               <div class="col-50">
                 <label for="cvv">Cv</label>
-                <input type="text" id="cvv" name="cvv" formControlName="cvv" placeholder="352">
+                <input type="text" id="cvv" name="cvv" maxlength="3" minlength="3" formControlName="cvv" placeholder="352">
               </div>
             </div>
           </div>
         </div>
         <label>
           <input type="text" placeholder="Kredi Kart İsmi">
-          <input type="checkbox" id="saveCreditCard" checked="checked" name="sameadr">Kredi Kartı Bilgilerimi Kaydet
+          <input type="checkbox" id="saveCreditCard" checked="checked"  name="sameadr">Kredi Kartı Bilgilerimi Kaydet
         </label>
         <button (click)="addRental()" [disabled]="!creditCardForm.valid" class="btn">Ödemeyi Tamamla</button>
       </form>
